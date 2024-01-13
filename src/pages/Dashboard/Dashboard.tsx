@@ -10,7 +10,7 @@ const Dashboard = () => {
 	return (
 		<Box>
 			<Flex align="center" justify="space-between" p={4} bg="pink.200">
-				<Image src="/logo.png" alt="Logo" w={100} h={50} />
+				<Image src="/logo.png" alt="Logo" width={40} />
 				<Image
 					src="/avatar.png"
 					alt="Avatar"

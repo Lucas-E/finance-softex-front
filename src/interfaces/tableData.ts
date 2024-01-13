@@ -1,18 +1,21 @@
 export interface CustomerTableData {
-    name: string,
-    email:string,
-    phone:string,
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
 }
 
-export interface ProductTableData{
-    name:string,
-    price:string,
-    description:string,
+export interface ProductTableData {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
 }
 
-export interface TransactionTableData{
-    customerName:string,
-    amount:number,
-    executedAt:Date,
-    productName:string
+export interface TransactionTableData {
+  id: number;
+  customerName: string;
+  amount: number;
+  executedAt: Date;
+  productName: string;
 }

@@ -14,49 +14,46 @@ import {
 
 import { FormControl, FormLabel } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import { Product } from "../interfaces/Product";
 import api from "../utils/services/api";
-import MoneyInput from "./MoneyInput";
 import { useCookies } from "react-cookie";
+import { useQueryClient } from "react-query";
+import { CustomerTableData } from "../interfaces/tableData";
 
-export const CreateProductModal: React.FC<Omit<ModalProps, "children">> = (
+export const CreateCustomerModal: React.FC<Omit<ModalProps, "children">> = (
   props,
 ) => {
-  const { handleSubmit, register, setValue } = useForm<Product>();
+  const { handleSubmit, register } = useForm<CustomerTableData>();
   const toast = useToast();
   const [cookies] = useCookies();
 
+  const queryClient = useQueryClient();
+
   const onSubmit = handleSubmit(async (values) => {
     try {
-      await api.post("/products", {
+      await api.post("/customers", {
         ...values,
-        user: {
-          id: cookies.authData.user.id,
-        },
+        userId: cookies.authData.user.id,
       });
       toast({
         title: "Sucesso",
-        description: "Produto cadastrado com sucesso",
+        description: "Cliente cadastrado com sucesso",
         status: "success",
       });
+      queryClient.invalidateQueries("customers");
       props.onClose?.();
     } catch (error) {
       toast({
-        title: "Erro ao cadastrar produto",
+        title: "Erro ao cadastrar cliente",
         description: "Verifique os dados e tente novamente.",
       });
     }
   });
 
-  const handlePriceChange = (numeric: number) => {
-    setValue("price", numeric / 100);
-  };
-
   return (
     <Modal {...props}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Cadastrar novo produto</ModalHeader>
+        <ModalHeader>Cadastrar novo cliente</ModalHeader>
         <ModalCloseButton onClick={props.onClose} />
         <ModalBody>
           <form onSubmit={onSubmit}>
@@ -65,12 +62,8 @@ export const CreateProductModal: React.FC<Omit<ModalProps, "children">> = (
               <Input {...register("name")} />
             </FormControl>
             <FormControl>
-              <FormLabel>Preço</FormLabel>
-              <MoneyInput onMoneyChange={handlePriceChange} />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Descrição</FormLabel>
-              <Input {...register("description")} />
+              <FormLabel>Email</FormLabel>
+              <Input type="email" {...register("email")} />
             </FormControl>
             <Flex mt={5} mb={3}>
               <Button colorScheme="blue" mr={3} type="submit">

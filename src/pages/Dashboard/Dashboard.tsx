@@ -20,7 +20,7 @@ const Dashboard = () => {
 				<StatCard amount={100} percentage={10} />
 			</Flex>
 			<Flex p={4} justify="space-between">
-				<Tabs isFitted variant="enclosed" width={'100%'}>
+				<Tabs isFitted variant="soft-rounded" width={'100%'}>
 					<TabList mb="1em">
 						<Tab>One</Tab>
 						<Tab>Two</Tab>

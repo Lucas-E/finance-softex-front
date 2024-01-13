@@ -14,9 +14,11 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@types/axios": "^0.14.0",
+    "@types/faker": "^6.6.9",
     "@types/node": "^20.11.0",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.6.5",
+    "faker": "^6.6.6",
     "framer-motion": "^10.18.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -26,6 +28,7 @@
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.3.1",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "@typescript-eslint/eslint-plugin": "^6.14.0",

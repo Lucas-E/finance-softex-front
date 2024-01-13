@@ -4,20 +4,20 @@ import {
 	StatNumber,
 	StatHelpText,
 	StatArrow,
-    Box
+	Box,
 } from "@chakra-ui/react";
-const StatCard = ({
-	amount,
-	percentage,
-}: {
+
+interface props {
 	amount: number;
 	percentage: number;
-}) => {
+	label: string;
+}
+const StatCard = ({ amount, percentage, label }: props) => {
 	return (
 		<>
-			<Box width={'40%'}>
+			<Box width={"40%"}>
 				<Stat p={5} border={"1px solid gray"} borderRadius={10}>
-					<StatLabel>Sent</StatLabel>
+					<StatLabel>{label}</StatLabel>
 					<StatNumber>{amount}</StatNumber>
 					<StatHelpText>
 						<StatArrow type="increase" />

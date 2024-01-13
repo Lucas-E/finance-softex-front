@@ -4,6 +4,7 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import DashboardTable from "../../components/DashboardTable/DashboardTable";
 import { generateFakeData } from "../../utils/functions/generateFakeDataTable";
 import CreationMenuButton from "../../components/MenuButton/CreationMenuButton";
+import ProfileButton from "../../components/ProfileButton/ProfileButton";
 
 const Dashboard = () => {
 	const customerData = generateFakeData(10);
@@ -11,15 +12,9 @@ const Dashboard = () => {
 		<Box>
 			<Flex align="center" justify="space-between" p={4} bg="pink.200">
 				<Image src="/logo.png" alt="Logo" width={40} />
-				<Image
-					src="/avatar.png"
-					alt="Avatar"
-					w={50}
-					h={50}
-					borderRadius="full"
-				/>
+				<ProfileButton/>
 			</Flex>
-			<Flex p={4} justifyContent="space-around" mt={20} mb={10}>
+			<Flex p={4} alignItems={'center'} justifyContent="space-around" mt={20} mb={10} direction={{ base: 'column', md: 'row' }}>
 				<StatCard amount={100} percentage={10} label={"Clientes"} />
 				<StatCard amount={100} percentage={10} label={"Vendas"} />
 			</Flex>

@@ -9,7 +9,7 @@ interface TableProps {
 const DashboardTable = ({ data, headers }: TableProps) => {
 	return (
 		<Box borderRadius="md" overflow="hidden">
-			<Table variant="simple">
+			<Table variant="stripped">
 				<Thead>
 					<Tr>
 						{headers?.map((header, index) => (

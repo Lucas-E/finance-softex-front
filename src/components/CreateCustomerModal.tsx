@@ -40,6 +40,7 @@ export const CreateCustomerModal: React.FC<Omit<ModalProps, "children">> = (
         status: "success",
       });
       queryClient.invalidateQueries("customers");
+      queryClient.invalidateQueries("customerQuantity")
       props.onClose?.();
     } catch (error) {
       toast({

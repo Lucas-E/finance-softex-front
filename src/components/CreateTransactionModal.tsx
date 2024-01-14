@@ -88,6 +88,7 @@ export const CreateTransactionModal: React.FC<Omit<ModalProps, "children">> = (
         status: "success",
       });
       queryClient.invalidateQueries("transactions");
+      queryClient.invalidateQueries("transactionQuantity")
       props.onClose?.();
     } catch (error) {
       toast({

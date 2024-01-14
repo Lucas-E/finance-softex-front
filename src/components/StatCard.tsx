@@ -13,7 +13,7 @@ const StatCard = ({ amount, label }: props) => {
 				bgGradient="linear(to-br, #e908a0, #c9a21c)"
 				borderRadius={10}
 			>
-				<Stat p={5} border={"1px solid gray"} borderRadius={10}>
+				<Stat p={5} borderRadius={10}>
 					<StatLabel>
 						<Text
 							fontSize={"5xl"}
@@ -23,7 +23,7 @@ const StatCard = ({ amount, label }: props) => {
 							{label}
 						</Text>
 					</StatLabel>
-					<StatNumber><Text color={'white'}>{amount}</Text></StatNumber>
+					<StatNumber><Text color={'white'}>{amount || 0}</Text></StatNumber>
 				</Stat>
 			</Box>
 		</>

@@ -10,6 +10,8 @@ import {
   ProductTableData,
   TransactionTableData,
 } from "../../interfaces/tableData";
+import ProfileButton from "../../components/ProfileButton/ProfileButton";
+import { useEffect } from "react";
 
 const Dashboard = () => {
   const toast = useToast();
@@ -77,17 +79,15 @@ const Dashboard = () => {
     queryFn: fetchCustomers,
   });
 
+  useEffect(() => {
+	console.log(transactions)
+  }, [transactions])
+
   return (
     <Box>
       <Flex align="center" justify="space-between" p={4} bg="pink.200">
         <Image src="/logo.png" alt="Logo" width={40} />
-        <Image
-          src="/avatar.png"
-          alt="Avatar"
-          w={50}
-          h={50}
-          borderRadius="full"
-        />
+        <ProfileButton />
       </Flex>
       <Flex p={4} justifyContent="space-around" mt={20} mb={10}>
         <StatCard amount={100} percentage={10} label={"Clientes"} />
@@ -122,7 +122,7 @@ const Dashboard = () => {
                 headers={[
                   "customerName",
                   "amount",
-                  "executedAt",
+                  "expectedAt",
                   "productName",
                 ]}
               />

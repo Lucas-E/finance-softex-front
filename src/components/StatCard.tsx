@@ -1,28 +1,29 @@
-import {
-	Stat,
-	StatLabel,
-	StatNumber,
-	StatHelpText,
-	StatArrow,
-	Box,
-} from "@chakra-ui/react";
+import { Stat, StatLabel, StatNumber, Box, Text } from "@chakra-ui/react";
 
 interface props {
 	amount: number;
 	percentage: number;
 	label: string;
 }
-const StatCard = ({ amount, percentage, label }: props) => {
+const StatCard = ({ amount, label }: props) => {
 	return (
 		<>
-			<Box width={"40%"}>
+			<Box
+				width={"40%"}
+				bgGradient="linear(to-br, #e908a0, #c9a21c)"
+				borderRadius={10}
+			>
 				<Stat p={5} border={"1px solid gray"} borderRadius={10}>
-					<StatLabel>{label}</StatLabel>
-					<StatNumber>{amount}</StatNumber>
-					<StatHelpText>
-						<StatArrow type="increase" />
-						{percentage}
-					</StatHelpText>
+					<StatLabel>
+						<Text
+							fontSize={"5xl"}
+							fontWeight={"bold"}
+							color={"white"}
+						>
+							{label}
+						</Text>
+					</StatLabel>
+					<StatNumber><Text color={'white'}>{amount}</Text></StatNumber>
 				</Stat>
 			</Box>
 		</>

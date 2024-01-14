@@ -19,3 +19,13 @@ export interface TransactionTableData {
   executedAt: Date;
   productName: string;
 }
+
+export interface TransactionQuantity{
+  ok: string,
+  count: number
+}
+
+export interface CustomerQuantity{
+  message:string,
+  data:any
+}

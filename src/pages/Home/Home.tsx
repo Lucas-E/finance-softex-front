@@ -84,11 +84,14 @@ const Home = () => {
 
   return (
     <Flex height="100vh" bg="blue.500" justifyContent={"space-around"}>
-      <Flex width={"100%"} flexGrow={1}>
+      <Flex width={"100%"} flexGrow={1} direction={{base: 'column', md:'row'}}>
         <Flex
           p={20}
           bg="white"
-          width={"60%"}
+          width={{
+            base: '100%',
+            md: "60%"
+          }}
           flexDirection={"column"}
           alignItems={"center"}
           justifyContent={"center"}
@@ -132,7 +135,10 @@ const Home = () => {
         {isSubscribing ? (
           <>
             <Flex
-              width={"40%"}
+              width={{
+                base: '100%',
+                md: "40%"
+              }}
               bgGradient="linear(to-r, green.400, pink.500)"
               alignItems={"center"}
               justifyContent={"center"}
@@ -200,7 +206,10 @@ const Home = () => {
           </>
         ) : (
           <Flex
-            width={"40%"}
+            width={{
+              base: '100%',
+              md: "40%"
+            }}
             bgGradient="linear(to-r, green.400, pink.500)"
             alignItems={"center"}
             justifyContent={"center"}

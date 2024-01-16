@@ -10,7 +10,8 @@ const StatCard = ({ amount, label }: props) => {
 		<>
 			<Box
 				width={"40%"}
-				bgGradient="linear(to-br, #e908a0, #c9a21c)"
+				backgroundColor={'gray.400'}
+				boxShadow={"md"}
 				borderRadius={10}
 			>
 				<Stat p={5} borderRadius={10}>
